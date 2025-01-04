@@ -2,13 +2,13 @@
 	"$schema": "https://schemas.premid.app/metadata/1.12",
 	"apiVersion": 1,
 	"author": {
-		"name": "Stringy",
-		"id": "577743466940071949"
+		"name": "theusaf",
+		"id": "193714715631812608"
 	},
 	"contributors": [
 		{
-			"name": "theusaf",
-			"id": "193714715631812608"
+			"name": "Stringy",
+			"id": "577743466940071949"
 		}
 	],
 	"service": "Jackbox",
@@ -22,13 +22,18 @@
 		"www.jackboxgames.com",
 		"shop.jackboxgames.com"
 	],
-	"version": "2.1.4",
+	"version": "2.2.0",
 	"logo": "https://cdn.rcd.gg/PreMiD/websites/J/Jackbox/assets/logo.png",
 	"thumbnail": "https://cdn.rcd.gg/PreMiD/websites/J/Jackbox/assets/thumbnail.png",
 	"color": "#4254f4",
 	"category": "games",
 	"tags": [
-		"games"
+		"games",
+		"trivia",
+		"party",
+		"fun",
+		"drawing",
+		"group"
 	],
 	"readLogs": true,
 	"settings": [

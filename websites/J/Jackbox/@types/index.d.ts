@@ -20,6 +20,15 @@ interface GamePlayerState {
 		text?: string;
 		html?: string;
 	};
+	goal?: string;
+	options?: string[];
+	instructions?: string;
+	textEntry?: {
+		autoSubmit: boolean;
+		prompt: string;
+		responseKey: string;
+		responseText: string;
+	};
 	entryId?: string;
 	choiceId?: string;
 	responseKey?: string;

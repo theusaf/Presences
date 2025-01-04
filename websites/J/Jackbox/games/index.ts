@@ -52,6 +52,7 @@ import * as nopusopus from "./Party Pack 10/nopus-opus";
 import * as riskytext from "./Party Pack 10/risky-text";
 import * as timetrivia from "./Party Pack 10/time-trivia";
 import * as usthem from "./Party Pack 10/us-them";
+import * as bigsurvey from "./Non-Pack/bigsurvey";
 
 export default {
 	unknown,
@@ -108,4 +109,5 @@ export default {
 	"risky-text": riskytext,
 	"time-trivia": timetrivia,
 	"us-them": usthem,
+	bigsurvey,
 } as Record<string, Game>;
