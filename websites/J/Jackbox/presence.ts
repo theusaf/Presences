@@ -21,7 +21,7 @@ let gamePlayerState: GamePlayerState = {
 if (document.location.hostname === "jackbox.tv") {
 	setInterval(async () => {
 		const playerStateLogs = await presence.getLogs(
-			/recv <- .*?("key": "(bc:customer|player|info):[a-z0-9-]+",)/s
+			/recv <- .*?("key": "(bc:customer|player|info):[a-z0-9-]+",|"opcode":\s*"client\/welcome")/s
 		);
 		if (playerStateLogs.length > 0) {
 			let updatedMainState = false,
@@ -76,17 +76,22 @@ if (document.location.hostname === "jackbox.tv") {
 							gamePlayerInfoState = parsedLog.result.val;
 							updatedInfoState = true;
 						}
+						break;
+					}
+					case /recv <- .*?"opcode": "client\/welcome"/s.test(latestLog): {
+						if (!updatedInfoState) {
+							gamePlayerInfoState = parsedLog.result;
+							updatedInfoState = true;
+						}
+						break;
 					}
 				}
 			}
 		}
 		if (!game) {
-			type JackboxStorageLetiable = {
-				tag: string;
-			};
-			const { tag } = await presence.getPageletiable<JackboxStorageLetiable>(
-				'tv"]["storage'
-			);
+			const { "tv.storage.tag": tag } = await presence.getPageVariable<
+				Record<string, string>
+			>("tv.storage.tag");
 			gametag = tag;
 			if (tag && tag !== "@connect") {
 				game = games[tag];
